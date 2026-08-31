@@ -97,3 +97,48 @@ print(f"The sum of {x} and {y} is {x + y}")
 
 print("The sum of {} and {} is {}".format(x, y, x + y))
 
+TODO:
+#round - a built-in Python function that rounds a floating-point number to a specified number of decimal places.
+
+Z = round(x/y, 2) 
+print(f"{z:,}") - #prints the value of z with commas as thousands separators.
+print(f"{z:.2f}") - #prints the value of z with two decimal places.
+
+TODO:
+#Functions -def - a keyword used to define a function in Python.
+
+def hello(to="world"):
+    print("hello,", to)
+
+hello() -> #hello, world
+name = input("Enter your name: ")
+hello(name)
+
+#function positional parameters - parameters that are defined in a function and must be provided in the correct order when the function is called.
+
+def main():
+    name = input("Enter your name: ")
+    hello(name)
+
+def hello(to="world"):
+    print("hello,", to)
+
+main() -> #hello, <user_input> - without the main() function, the hello() function would not be called and the program would not run. 
+                                #why? Because the function is defined but never executed without being called from another function or directly in the script.
+
+TODO:
+#Return functions - functions that return a value to the caller using the return statement.
+
+def main():
+    x = int(input("Enter a number: "))
+    print(f"The square of {x} is {square(x)}")
+
+def square(n):
+    return n ** 2
+
+#or
+
+def square(n):
+    return pow(n, 2) -> #returns the value of n raised to the power of 2.
+
+main()
