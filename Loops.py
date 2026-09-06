@@ -94,6 +94,7 @@ print(len(students)) - #prints 3
 for student in range(len(students)): #range() - returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number
     print(student + 1, students[student]) - #prints each student in the list
 
+TODO:
 #dict - a collection of key-value pairs
 
 students = {
@@ -107,3 +108,62 @@ print(students["Hermoine"])  #unlike lists, dictionaries are unordered, so you c
 for each in students:
     print(each, students[each])  #prints each key-value pair in the dictionary
     print(each, students[each], sep=", ")
+
+students["Hermoine"] = "Granger"  #updates the value of the key "Hermoine" to "Granger"
+
+students = [{"name": "Hermoine", "surname": "Granger"}, {
+             "name": "Harry", "surname": "Potter"}, { 
+             "name": "Ron", "surname": "Weasley"}]  #list of dictionaries
+
+for student in students:
+    print(student["name"], student["surname"])  #prints each name and surname in the list of dictionaries
+    print(student)  #prints each dictionary in the list
+    for key in student:
+        print(key, student[key])  #prints each key-value pair in the dictionary
+        print(student["name"], student["surname"], sep=", ")  #prints each key-value pair in the dictionary
+
+TODO:
+#print column
+
+def main():
+    print_column(3)
+
+def print_column(height):
+    for _ in range(height):
+        print("#")
+
+#or
+
+def print_column(height):
+    print("#\n" * height, end="")
+
+main()
+
+
+#print row
+
+def main():
+    print_row(3)
+
+def print_row(width):
+    for _ in range(width):
+        print("?", end="")
+
+# #or
+
+# def print_row(width):
+#     print("?" * width)
+
+# main()
+
+#abstracting repetitive code into functions is a good practice to avoid code repetition and make the code more readable and maintainable.
+
+def main():
+    print_square(3)
+
+def print_square(size):
+    for _ in range(size):
+        print_row(size)
+        print()  #prints a new line after each row
+
+main()
