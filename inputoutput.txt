@@ -1,0 +1,15 @@
+name,home
+
+Harry,"Diagon, Alley"
+Hermoine,"Muggle, house"
+Ron,Bighouse
+larry,larry house
+chuck,chucckhosue
+goay,goathouse
+Bro,brohouse
+name,home
+john,john nhouse
+name,home
+jim,jim house
+name,home
+king,king house
