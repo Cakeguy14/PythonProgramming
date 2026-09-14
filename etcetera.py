@@ -78,3 +78,69 @@ def main():
 if __name__ == "__main__":
     main()
 
+#TODO:
+
+#constants - when you have value/integer/anything thats going to stay constant over time. you can use Class Constants
+
+class Cat:
+    MEOWS = 3
+
+    def meows(self):
+        for _ in range(Cat.MEOWS):    #Cat.MEOWS is the constant here. Its going to be called via methods and stay the same.
+            print("Meow")
+
+cat = Cat()
+cat.meows()
+
+#TODO:
+
+#type hints
+
+def meow(n: int) -> None:             #adding n: int defines type hinting that input should be int
+    for _ in range(n):
+        print("meow")
+
+num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+meow(num)
+
+#or
+
+def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
+    return "mewo\n" * n
+
+num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+meow(num)
+
+#TODO:
+
+#docstrings - documenting kind of markdown language
+
+def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
+    """
+    Meow n time when called
+    :param n: number of times
+    :type of n: int
+    :raise typeerror: If n is not a int
+    :return type: str
+    """
+    return "mewo\n" * n
+
+num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+meow(num)
+
+#TODO:
+
+#command line n numberinput using sys lib
+
+import sys
+
+if len(sys.argv) == 1:
+    print("meow")
+elif len(sys.argv) == 3 and (sys.argv[1]) == "-n":
+    num = int(sys.argv[2])
+    for _ in range(num):
+        print("meow")
+else:
+    print("not correct syntax")
+
+
