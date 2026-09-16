@@ -5,142 +5,153 @@
 
 # # houses = []
 
+# # # for student in students:
+# # #     if student["house"] not in houses:
+# # #         houses.append(student["house"])
+
+# # # for house in houses:
+# # #     print(house)
+
+# # houses = set()                 #set uses add instead of append like list
+
 # # for student in students:
 # #     if student["house"] not in houses:
-# #         houses.append(student["house"])
+# #         houses.add(student["house"])
 
-# # for house in houses:
+# # for house in sorted(houses):
 # #     print(house)
 
-# houses = set()                 #set uses add instead of append like list
+# #TODO:
 
-# for student in students:
-#     if student["house"] not in houses:
-#         houses.add(student["house"])
+# #gobal variables
 
-# for house in sorted(houses):
-#     print(house)
+# # balance = 0 
 
-#TODO:
+# # def main():
+# #     print("balance:", balance)
+# #     deposit(100)
+# #     withdraw(50)
+# #     print("balance:", balance)
 
-#gobal variables
+# # def deposit(amount):
+# #     global balance      # if a variable is defined inside main function or any function that has been then its fine, TODO: BUT!
+# #     balance += amount
 
-# balance = 0 
+# # def withdraw(amount):   # BUT! if a variable is defined outside of functions i.e, global. to call it in function use TODO: global variable
+# #     global balance
+# #     balance -= amount
+
+# # if __name__ == "__main__":
+# #     main()
+
+# #TODO: best option is to write inside a class for these kind of functions. As they are related
+
+# class Bank:
+#     def __init__(self):
+#         amount = int(input("Enter a value: "))
+#         self.balance = amount
+
+#     @property
+#     def balance(self):
+#         return self._balance
+
+#     @balance.setter
+#     def balance(self, amount):
+#         if amount < 0:
+#             raise ValueError("not allowed")
+#         self._balance = amount
+
+#     def withdraw(self, amount):
+#         if amount < self._balance:
+#             self.balance -= amount
+
+#     def __str__(self):
+#         return f"{self.balance} is your balance"
 
 # def main():
-#     print("balance:", balance)
-#     deposit(100)
-#     withdraw(50)
-#     print("balance:", balance)
-
-# def deposit(amount):
-#     global balance      # if a variable is defined inside main function or any function that has been then its fine, TODO: BUT!
-#     balance += amount
-
-# def withdraw(amount):   # BUT! if a variable is defined outside of functions i.e, global. to call it in function use TODO: global variable
-#     global balance
-#     balance -= amount
+#     account = Bank()
+#     print(account.balance)
+#     # account.deposit(100)
+#     account.withdraw(50)
+#     print(account.balance)
 
 # if __name__ == "__main__":
 #     main()
 
-#TODO: best option is to write inside a class for these kind of functions. As they are related
+# #TODO:
 
-class Bank:
-    def __init__(self):
-        amount = int(input("Enter a value: "))
-        self.balance = amount
+# #constants - when you have value/integer/anything thats going to stay constant over time. you can use Class Constants
 
-    @property
-    def balance(self):
-        return self._balance
+# class Cat:
+#     MEOWS = 3
 
-    @balance.setter
-    def balance(self, amount):
-        if amount < 0:
-            raise ValueError("not allowed")
-        self._balance = amount
+#     def meows(self):
+#         for _ in range(Cat.MEOWS):    #Cat.MEOWS is the constant here. Its going to be called via methods and stay the same.
+#             print("Meow")
 
-    def withdraw(self, amount):
-        if amount < self._balance:
-            self.balance -= amount
+# cat = Cat()
+# cat.meows()
 
-    def __str__(self):
-        return f"{self.balance} is your balance"
+# #TODO:
 
-def main():
-    account = Bank()
-    print(account.balance)
-    # account.deposit(100)
-    account.withdraw(50)
-    print(account.balance)
+# #type hints
 
-if __name__ == "__main__":
-    main()
+# def meow(n: int) -> None:             #adding n: int defines type hinting that input should be int
+#     for _ in range(n):
+#         print("meow")
 
-#TODO:
+# num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+# meow(num)
 
-#constants - when you have value/integer/anything thats going to stay constant over time. you can use Class Constants
+# #or
 
-class Cat:
-    MEOWS = 3
+# def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
+#     return "mewo\n" * n
 
-    def meows(self):
-        for _ in range(Cat.MEOWS):    #Cat.MEOWS is the constant here. Its going to be called via methods and stay the same.
-            print("Meow")
+# num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+# meow(num)
 
-cat = Cat()
-cat.meows()
+# #TODO:
 
-#TODO:
+# #docstrings - documenting kind of markdown language
 
-#type hints
+# def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
+#     """
+#     Meow n time when called
+#     :param n: number of times
+#     :type of n: int
+#     :raise typeerror: If n is not a int
+#     :return type: str
+#     """
+#     return "mewo\n" * n
 
-def meow(n: int) -> None:             #adding n: int defines type hinting that input should be int
-    for _ in range(n):
-        print("meow")
+# num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
+# meow(num)
 
-num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
-meow(num)
+# #TODO:
 
-#or
+# #command line n numberinput using sys lib
 
-def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
-    return "mewo\n" * n
+# import sys
 
-num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
-meow(num)
+# if len(sys.argv) == 1:
+#     print("meow")
+# elif len(sys.argv) == 3 and (sys.argv[1]) == "-n":
+#     num = int(sys.argv[2])
+#     for _ in range(num):
+#         print("meow")
+# else:
+#     print("not correct syntax")
 
 #TODO:
 
-#docstrings - documenting kind of markdown language
+#arg parser - to automate the arg parsing in a python file giving input to run
 
-def meow(n: int) -> str:             #adding n: int defines type hinting that input should be int
-    """
-    Meow n time when called
-    :param n: number of times
-    :type of n: int
-    :raise typeerror: If n is not a int
-    :return type: str
-    """
-    return "mewo\n" * n
+import argparse
 
-num: int = int(input("enter a num: "))   #main purpose of typw hinting to to identify any type error in code using mypy lib
-meow(num)
+parser = argparse.ArgumentParser(description="meow like a cat)
+parser.add_argument("-n", default=1, help="this program is to meow like a cat", type=int)
+arg = parser.parse_args()
 
-#TODO:
-
-#command line n numberinput using sys lib
-
-import sys
-
-if len(sys.argv) == 1:
+for _ in range(arg.n):
     print("meow")
-elif len(sys.argv) == 3 and (sys.argv[1]) == "-n":
-    num = int(sys.argv[2])
-    for _ in range(num):
-        print("meow")
-else:
-    print("not correct syntax")
-
-
