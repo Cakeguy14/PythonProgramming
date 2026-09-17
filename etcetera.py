@@ -1,5 +1,5 @@
-#TODO:
-#set - unordered, mutable, non-hashable, non-indexable, NO DUPLICATES
+# TODO:
+# set - unordered, mutable, non-hashable, non-indexable, NO DUPLICATES
 
 # students = [{"name": "harry", "house": "gryfindor"}, {"name": "hermoine", "house": "slytherin"}]
 
@@ -25,7 +25,7 @@
 
 # #gobal variables
 
-# # balance = 0 
+# # balance = 0
 
 # # def main():
 # #     print("balance:", balance)
@@ -143,15 +143,146 @@
 # else:
 #     print("not correct syntax")
 
+# TODO:
+
+# arg parser - to automate the arg parsing in a python file giving input to run
+
+# import argparse
+
+# parser = argparse.ArgumentParser(description="meow like a cat)
+# parser.add_argument("-n", default=1, help="this program is to meow like a cat", type=int)
+# arg = parser.parse_args()
+
+# for _ in range(arg.n):
+#     print("meow")
+
+
+# #TODO:
+
+# #unpacking
+
+# def total(galleons, sickles, knuts):
+#     return(galleons * 5 + sickles * 2) * knuts
+
+# coins = [100,50,25]
+
+# print(f"{total(*coins)} knuts")   # * - helps the list to unpack and assign each coins values to the parameter into the functions. #TODO: precursor of *args - tuple,list
+
+# #or
+
+# def total(galleons, sickles, knuts):
+#     return(galleons * 5 + sickles * 2) * knuts
+
+# print(total(galleons=100,sickles=50,knuts=25), "knuts")   #you can also use keyword= arguments method to pass arguments to the function.
+
+# #or
+
+# def total(galleons, sickles, knuts):
+#     return(galleons * 5 + sickles * 2) * knuts
+
+# coins = {"galleons": 100, "sickles": 50, "knuts": 25}
+
+# print(f"{total(**coins)} knuts")    #TODO: precursor of **kwargs - dict
+
+
+# #TODO:
+
+# #*args, **kwargs
+
+# def main():
+#     yell(["this", "is", "cs50"])
+
+
+# def yell(words):
+#     uppercased = []
+#     for word in words:
+#         uppercased.append(word.upper())
+#     print(*uppercased)                    # *args - *uppercased helps you to unpack the result list into individual values/strings.
+
+# if __name__ == "__main__":
+#     main()
+
+# #or
+
+# def main():
+#     yell("this", "is", "cs50")
+
+
+# def yell(*words):                        # if not list passed in and a value/string is passed. then you have pass the value via *arg parameter inside the function.
+#     uppercased = []
+#     for word in words:
+#         uppercased.append(word.upper())
+#     print(*uppercased)
+
+# if __name__ == "__main__":
+#     main()
+
+
+# #or TODO: using map function we can get rid of the loop and use it as it is.
+
+# def main():
+#     yell("this", "is", "cs50")
+
+
+# def yell(*words):
+#     uppercased = map(str.upper, words)  # map function helps to go through each argument passed and helps to achieve the given function
+#     print(*uppercased)                  # map() returns an iterator, not a list. Iterators can only be consumed once.
+#                                         # map() call all the items passed into it, filter() calls only particular passes criteria.
+# if __name__ == "__main__":
+#     main()
+
+# TODO:
+
+# list comprehension
+
+# students = [{"name": "harry", "house": "gryfindor"}, {"name": "hermoine", "house": "slytherin"}]
+
+# Student = [student["name"] for student in students if student["house"] == "gryfindor"]
+
+# for _ in Student:
+#     print(_)
+
+# or TODO: filter function also similar to map function only difference is that the map will to the arg passing for in a given list/input. filter only do for functions specified filter.
+
+students = [
+    {"name": "harry", "house": "gryfindor"},
+    {"name": "hermoine", "house": "slytherin"},
+]
+
+
+def is_gryfindor(s):
+    return s["house"] == "gryfindor"                   #TODO: important note is that, here S is just a placeholder you can use any name/character here.
+
+
+gryfindors = filter(is_gryfindor, students)                   #TODO: since, we are originally calling the students variable itself here. the filter function knows where to pick and return data.
+
+for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):      
+    print(gryfindor["name"])
+
+#or
+
+students = [
+    {"name": "harry", "house": "gryfindor"},
+    {"name": "hermoine", "house": "slytherin"},
+]
+
+gryfindors = filter(lambda s: s["house"] == "gryfindor", students)   # TODO: we don't have use a separate function and call it. we can directly give the return value in here as well.
+
+for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):
+    print(gryfindor["name"])
+
 #TODO:
 
-#arg parser - to automate the arg parsing in a python file giving input to run
+#dict comprehension
 
-import argparse
+students = ["Harry","Hermoine","Ron"]
 
-parser = argparse.ArgumentParser(description="meow like a cat)
-parser.add_argument("-n", default=1, help="this program is to meow like a cat", type=int)
-arg = parser.parse_args()
+gryfindors = []
 
-for _ in range(arg.n):
-    print("meow")
+for student in students:
+    gryfindors.append({"name": student, "house": "gryfindor"})
+    
+print(gryfindors)
+
+
+
