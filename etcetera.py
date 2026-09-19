@@ -244,45 +244,101 @@
 
 # or TODO: filter function also similar to map function only difference is that the map will to the arg passing for in a given list/input. filter only do for functions specified filter.
 
-students = [
-    {"name": "harry", "house": "gryfindor"},
-    {"name": "hermoine", "house": "slytherin"},
-]
+# students = [
+#     {"name": "harry", "house": "gryfindor"},
+#     {"name": "hermoine", "house": "slytherin"},
+# ]
 
 
-def is_gryfindor(s):
-    return s["house"] == "gryfindor"                   #TODO: important note is that, here S is just a placeholder you can use any name/character here.
+# def is_gryfindor(s):
+#     return s["house"] == "gryfindor"                   #TODO: important note is that, here S is just a placeholder you can use any name/character here.
 
 
-gryfindors = filter(is_gryfindor, students)                   #TODO: since, we are originally calling the students variable itself here. the filter function knows where to pick and return data.
+# gryfindors = filter(is_gryfindor, students)                   #TODO: since, we are originally calling the students variable itself here. the filter function knows where to pick and return data.
 
-for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):      
-    print(gryfindor["name"])
+# for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):      
+#     print(gryfindor["name"])
 
-#or
+# #or
 
-students = [
-    {"name": "harry", "house": "gryfindor"},
-    {"name": "hermoine", "house": "slytherin"},
-]
+# students = [
+#     {"name": "harry", "house": "gryfindor"},
+#     {"name": "hermoine", "house": "slytherin"},
+# ]
 
-gryfindors = filter(lambda s: s["house"] == "gryfindor", students)   # TODO: we don't have use a separate function and call it. we can directly give the return value in here as well.
+# gryfindors = filter(lambda s: s["house"] == "gryfindor", students)   # TODO: we don't have use a separate function and call it. we can directly give the return value in here as well.
 
-for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):
-    print(gryfindor["name"])
+# for gryfindor in sorted(gryfindors, key=lambda s: s["name"]):
+#     print(gryfindor["name"])
+
+# #TODO:
+
+# #dict comprehension
+
+# students = ["Harry","Hermoine","Ron"]
+
+# gryfindors = []
+
+# for student in students:
+#     gryfindors.append({"name": student, "house": "gryfindor"})
+    
+# print(gryfindors)
+
+# #or                                                                      # same as above here we are using list comprehension.
+
+# students = ["Harry","Hermoine","Ron"]
+
+# gryfindors = [{"name": student, "house": "gryfindor"} for student in students]
+
+# print(gryfindors)
+
+# #or                                                                     # using dict comprehension we are append directly the name value into key and house value into value    
+
+# students = ["Harry","Hermoine","Ron"]
+
+# gryfindors = [{student: "gryfindor"} for student in students]
+
+# print(gryfindors)
+
 
 #TODO:
 
-#dict comprehension
+#enumerate function
 
-students = ["Harry","Hermoine","Ron"]
+# students = ["Harry","Hermoine","Ron"]
 
-gryfindors = []
+# for i in range(len(students)):
+#     print(i+1, students[i])
 
-for student in students:
-    gryfindors.append({"name": student, "house": "gryfindor"})
-    
-print(gryfindors)
+# #or TODO: enumerate goes through each index and its values and return them without directly calling the index of the value.
+
+# students = ["Harry","Hermoine","Ron"]
+
+# for i, student in enumerate(students):   # we have to give range of len(students). enumerate will pick automatically on whole.
+#     print(i+1, student)
+
+#TODO:
+
+#generators - generates the new value each time for a loop. rather than adding values into same results of same iteration.
+
+def main():
+    n = int(input("enter n: "))
+    for s in sheep(n):
+        print(s)
 
 
+# def sheep(n):
+#     flock = []
+#     for i in range(n):
+#         print("*"*i)
+#     return flock
+
+#or
+
+def sheep(n):
+    for i in range(n):                   # yield funtion gives the result of each iteration as indivdual result rather than combined.
+        yield "*"*i                      # this method saves memory, iterator function.
+
+if __name__ == "__main__":
+    main()
 
