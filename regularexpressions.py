@@ -4,21 +4,21 @@
 
 #without regular expression
 
-# mail = input("Enter your mail: ").strip()
+mail = input("Enter your mail: ").strip()
 
-# name, domain = mail.split("@")
+name, domain = mail.split("@")
 
-# if name and "." in domain:
-#     print("valid")
-# else:
-#     print("not valid")
+if name and "." in domain:
+    print("valid")
+else:
+    print("not valid")
 
 # #or
 
-# if name and domain.endswith(".com"):
-#     print("valid")
-# else:
-#     print("not valid")
+if name and domain.endswith(".com"):
+    print("valid")
+else:
+    print("not valid")
 
 #with regular expressions
 

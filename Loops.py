@@ -151,8 +151,8 @@ def print_row(width):
 
 # #or
 
-# def print_row(width):
-#     print("?" * width)
+def print_row(width):
+    print("?" * width)
 
 # main()
 
